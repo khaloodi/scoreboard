@@ -3,3 +3,6 @@ This a project built using ReactJS that utilizes various features including but 
 
 ## Motivation
 The purpose of this project is to demonstrate various features of the ReactJS library and my capacity to use them within a simple application.
+
+**Built With**
+- [React](https://reactjs.org/)
