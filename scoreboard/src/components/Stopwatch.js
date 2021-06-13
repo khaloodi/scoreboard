@@ -12,6 +12,10 @@ class Stopwatch extends Component {
     this.intervalID = setInterval(() => this.tick(), 100) // time delay of 100 = 1/10th of a second
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalID) // this clears the timer in case we were to go to a different, otherwise timer would run indefinitely
+  }
+
   tick = () => {
     if (this.state.isRunning) {
       const now = Date.now()
