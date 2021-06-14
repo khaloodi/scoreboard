@@ -62,7 +62,19 @@ class App extends Component {
     })
   }
 
+  getHighScore = () => {
+    const scores = this.state.players.map( p => p.score );
+    const highScore = Math.max(...scores);
+    if (highScore) {
+      return highScore;
+    } 
+    return null;
+  }
+
   render() {
+
+    const highScore = this.getHighScore() // Call the getHighScore function in the App component's render() method, and assign it to the variable highScore
+
     return (
       <div className="scoreboard">
         <Header 
@@ -79,6 +91,7 @@ class App extends Component {
             key={player.id.toString()} 
             index={index}
             scoreChange={this.handleScoreChange}
+            isHighScore={highScore === player.score} //expression that returns true if a player's score is equal to the high score, and false if it's not
             removePlayer={this.handleRemovePlayer}           
           />
         )}
