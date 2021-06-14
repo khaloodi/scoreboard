@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Consumer } from './Context'
 
 class AddPlayerForm extends Component {
 
@@ -13,31 +14,37 @@ class AddPlayerForm extends Component {
   //   this.setState({value: e.target.value})
   // }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    // this.props.addPlayer(this.state.value)
-    this.props.addPlayer(this.playerInput.current.value)
-    // this.setState({value: ''})
-    e.currentTarget.reset() //resets form submission after submit, added this b/c using refs instead of state
-  }
-
+  
   render() {
     // console.log(this.state.value)
     console.log(this.playerInput)
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          type="text" 
-          ref = {this.playerInput}
-          // value={this.state.value}
-          // onChange={this.handleValueChange}
-          placeholder="Enter a player's name"
-        />
-        <input 
-          type="submit" 
-          value="Add Player"
-        />
-      </form>
+      <Consumer>
+        { context => {
+          const handleSubmit = (e) => {
+            e.preventDefault()
+            // this.props.addPlayer(this.state.value)
+            context.actions.addPlayer(this.playerInput.current.value)
+            // this.setState({value: ''})
+            e.currentTarget.reset() //resets form submission after submit, added this b/c using refs instead of state
+          }
+          return (
+            <form onSubmit={handleSubmit}>
+              <input 
+                type="text" 
+                ref = {this.playerInput}
+                // value={this.state.value}
+                // onChange={this.handleValueChange}
+                placeholder="Enter a player's name"
+              />
+              <input 
+                type="submit" 
+                value="Add Player"
+              />
+            </form>
+          )
+          }}
+      </Consumer>
     )
   }
 }

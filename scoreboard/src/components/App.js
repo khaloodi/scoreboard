@@ -80,7 +80,9 @@ class App extends Component {
       <Provider value={{
         players: this.state.players,
         actions: {
-          changeScore: this.handleScoreChange
+          changeScore: this.handleScoreChange,
+          removePlayer: this.handleRemovePlayer,
+          addPlayer: this.handleAddPlayer
         }
       }}>
         <div className="scoreboard">
@@ -100,11 +102,13 @@ class App extends Component {
               index={index}
               // scoreChange={this.handleScoreChange}
               isHighScore={highScore === player.score} //expression that returns true if a player's score is equal to the high score, and false if it's not
-              removePlayer={this.handleRemovePlayer}           
+              // removePlayer={this.handleRemovePlayer}           
             />
           )}
 
-          <AddPlayerForm addPlayer={this.handleAddPlayer}/>
+          <AddPlayerForm 
+            // addPlayer={this.handleAddPlayer}
+          />
         </div>
       </Provider>
     );
