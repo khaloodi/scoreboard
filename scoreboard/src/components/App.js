@@ -66,7 +66,7 @@ class App extends Component {
     return (
       <div className="scoreboard">
         <Header 
-          title="Scoreboard" 
+          // title="Scoreboard" - included in default prop types
           players={this.state.players} 
         />
   
