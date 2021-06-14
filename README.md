@@ -8,3 +8,5 @@ The purpose of this project is to demonstrate various features of the ReactJS li
 
 **Built With**
 - [React](https://reactjs.org/)
+
+![Alt text](/scoreboard.png?raw=true "Optional Title")
