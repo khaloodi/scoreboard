@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Provider } from './Context' // named import, don't need to provide index.js b/c node looks for it automatically
 import Header from './Header'
 import Player from './Player'
 import AddPlayerForm from './AddPlayerForm'
@@ -76,28 +77,31 @@ class App extends Component {
     const highScore = this.getHighScore() // Call the getHighScore function in the App component's render() method, and assign it to the variable highScore
 
     return (
-      <div className="scoreboard">
-        <Header 
-          // title="Scoreboard" - included in default prop types
-          players={this.state.players} 
-        />
-  
-        {/* Players list */}
-        {this.state.players.map( (player, index) =>
-          <Player 
-            name={player.name}
-            score={player.score}
-            id={player.id}
-            key={player.id.toString()} 
-            index={index}
-            scoreChange={this.handleScoreChange}
-            isHighScore={highScore === player.score} //expression that returns true if a player's score is equal to the high score, and false if it's not
-            removePlayer={this.handleRemovePlayer}           
-          />
-        )}
+      <Provider value={this.state.players}>
+        <div className="scoreboard">
+          {/* <Header 
+            // title="Scoreboard" - included in default prop types
+            players={this.state.players} 
+          /> */}
+          <Header />
+    
+          {/* Players list */}
+          {this.state.players.map( (player, index) =>
+            <Player 
+              name={player.name}
+              score={player.score}
+              id={player.id}
+              key={player.id.toString()} 
+              index={index}
+              scoreChange={this.handleScoreChange}
+              isHighScore={highScore === player.score} //expression that returns true if a player's score is equal to the high score, and false if it's not
+              removePlayer={this.handleRemovePlayer}           
+            />
+          )}
 
-        <AddPlayerForm addPlayer={this.handleAddPlayer}/>
-      </div>
+          <AddPlayerForm addPlayer={this.handleAddPlayer}/>
+        </div>
+      </Provider>
     );
   }
 }

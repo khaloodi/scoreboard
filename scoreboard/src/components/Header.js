@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import Stats from './Stats'
 import Stopwatch from './Stopwatch'
 
@@ -8,7 +8,7 @@ const Header = (props) => {
   return (
     <header>
       <Stats 
-        players={ players }
+        // players={ players }
       />
       <h1>{ title }</h1>
       <Stopwatch />
@@ -16,13 +16,13 @@ const Header = (props) => {
   );
 }
 
-Header.propTypes = {
-  players: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string
-}
+// Header.propTypes = {
+//   players: PropTypes.arrayOf(PropTypes.object),
+//   title: PropTypes.string
+// }
 
-Header.defaultProps = {
-  title: 'Scoreboard'
-}
+// Header.defaultProps = {
+//   title: 'Scoreboard'
+// }
 
 export default Header
