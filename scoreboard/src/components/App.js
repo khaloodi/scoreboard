@@ -77,7 +77,12 @@ class App extends Component {
     const highScore = this.getHighScore() // Call the getHighScore function in the App component's render() method, and assign it to the variable highScore
 
     return (
-      <Provider value={this.state.players}>
+      <Provider value={{
+        players: this.state.players,
+        actions: {
+          changeScore: this.handleScoreChange
+        }
+      }}>
         <div className="scoreboard">
           {/* <Header 
             // title="Scoreboard" - included in default prop types
@@ -93,7 +98,7 @@ class App extends Component {
               id={player.id}
               key={player.id.toString()} 
               index={index}
-              scoreChange={this.handleScoreChange}
+              // scoreChange={this.handleScoreChange}
               isHighScore={highScore === player.score} //expression that returns true if a player's score is equal to the high score, and false if it's not
               removePlayer={this.handleRemovePlayer}           
             />

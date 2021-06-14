@@ -6,8 +6,8 @@ const Stats = () => {
   return (
     <Consumer>
       { context => { //equal to the value prop of the provider
-        const totalPlayers = context.length
-        const totalPoints = context.reduce( (total, players) => {
+        const totalPlayers = context.players.length
+        const totalPoints = context.players.reduce( (total, players) => {
           return total + players.score
         }, 0)
         return (

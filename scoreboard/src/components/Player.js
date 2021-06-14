@@ -6,7 +6,7 @@ import Icon from './Icon'
 class Player extends PureComponent {
 
   static propTypes = {
-    scoreChange: PropTypes.func,
+    // scoreChange: PropTypes.func,
     removePlayer: PropTypes.func,
     name: PropTypes.string,
     id: PropTypes.number,
@@ -23,7 +23,7 @@ class Player extends PureComponent {
       score,
       index,
       removePlayer,
-      scoreChange
+      // scoreChange
     } = this.props
     return (
       <div className="player">
@@ -36,7 +36,7 @@ class Player extends PureComponent {
         <Counter 
           score={score}
           index={index}
-          changeScore={scoreChange}
+          // changeScore={scoreChange}
         />
       </div>
     );

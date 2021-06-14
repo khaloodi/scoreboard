@@ -4,7 +4,7 @@ import Stats from './Stats'
 import Stopwatch from './Stopwatch'
 
 const Header = (props) => {
-  const { players, title } = props
+  const { title } = props
   return (
     <header>
       <Stats 
