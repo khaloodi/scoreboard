@@ -2,7 +2,7 @@
 
 Play with the scoreboard here: [live link 😊](https://khaled-react-scoreboard.netlify.app/)
 
-This a project built using ReactJS that utilizes various features including but not limited to: state (uplifting), class and functional components, form elements, and component rendering. 
+This a project built using ReactJS that utilizes various features including: state management, class-based/functional components, and form elements. 
 
 Interactive timer with stop/start and reset that uses hooks such as componentWillUnmount to prevent memory leaks. 
 
